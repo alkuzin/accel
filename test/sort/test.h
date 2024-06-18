@@ -16,7 +16,11 @@
  * <https://www.gnu.org/licenses/>.
  */
 
+#ifndef _TEST_ACCEL_SORT_H_
+#define _TEST_ACCEL_SORT_H_
+
 #include <accel/types.h>
+
 
 /** @brief Initialize sort algorithms test. */
 void test_init(void);
@@ -58,3 +62,5 @@ void test_other_sort(const char *func, void (*sort)(s32*, s32), s32 nmemb, bool 
  */
 void test_fast_sort(const char *func, void (*sort)(void*, usize, usize, s32 (*cmp)(const void *, const void *)),
 s32 nmemb, bool flag);
+
+#endif /* _TEST_ACCEL_SORT_H_ */
