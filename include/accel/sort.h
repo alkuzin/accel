@@ -44,7 +44,7 @@
  * 
  * @param [in] base - given pointer to the first element of the sequence to sort.
  * @param [in] nmemb - given number of elements in the sequence.
- * @param [in] size - given size of each element in aequence in bytes.
+ * @param [in] size - given size of each element in sequence in bytes.
  * @param [in] cmp - given comparison function pointer.
  */
 void accel_bubble_sort(void *base, usize nmemb, usize size, s32 (*cmp)(const void *, const void *));
@@ -61,7 +61,7 @@ void accel_bubble_sort(void *base, usize nmemb, usize size, s32 (*cmp)(const voi
  * 
  * @param [in] base - given pointer to the first element of the sequence to sort.
  * @param [in] nmemb - given number of elements in the sequence.
- * @param [in] size - given size of each element in aequence in bytes.
+ * @param [in] size - given size of each element in sequence in bytes.
  * @param [in] cmp - given comparison function pointer.
  */
 void accel_selection_sort(void *base, usize nmemb, usize size, s32 (*cmp)(const void *, const void *));
@@ -78,7 +78,7 @@ void accel_selection_sort(void *base, usize nmemb, usize size, s32 (*cmp)(const 
  * 
  * @param [in] base - given pointer to the first element of the sequence to sort.
  * @param [in] nmemb - given number of elements in the sequence.
- * @param [in] size - given size of each element in aequence in bytes.
+ * @param [in] size - given size of each element in sequence in bytes.
  * @param [in] cmp - given comparison function pointer.
  */
 void accel_insertion_sort(void *base, usize nmemb, usize size, s32 (*cmp)(const void *, const void *));
@@ -89,7 +89,7 @@ void accel_insertion_sort(void *base, usize nmemb, usize size, s32 (*cmp)(const 
  * 
  * @param [in] base - given pointer to the first element of the sequence to sort.
  * @param [in] nmemb - given number of elements in the sequence.
- * @param [in] size - given size of each element in aequence in bytes.
+ * @param [in] size - given size of each element in sequence in bytes.
  * @param [in] cmp - given comparison function pointer.
  * @param [in] i - given index of the root node of the subtree to heapify. 
  */
@@ -107,7 +107,7 @@ void accel_heapify(void *base, usize nmemb, usize size, s32 (*cmp)(const void *,
  * 
  * @param [in] base - given pointer to the first element of the sequence to sort.
  * @param [in] nmemb - given number of elements in the sequence.
- * @param [in] size - given size of each element in aequence in bytes.
+ * @param [in] size - given size of each element in sequence in bytes.
  * @param [in] cmp - given comparison function pointer.
  */
 void accel_heap_sort(void *base, usize nmemb, usize size, s32 (*cmp)(const void *, const void *));
@@ -120,7 +120,7 @@ void accel_heap_sort(void *base, usize nmemb, usize size, s32 (*cmp)(const void 
  * @param [in] na - given number of elements in the first sorted sequence.
  * @param [in] pb - given pointer to the first element of the second sorted sequence.
  * @param [in] nb - given number of elements in the second sorted sequence.
- * @param [in] size - given size of each element in aequence in bytes.
+ * @param [in] size - given size of each element in sequence in bytes.
  * @param [in] cmp - given comparison function pointer.
  */
 void accel_merge(void *out, const void *pa, usize na, const void *pb, usize nb, 
@@ -138,7 +138,7 @@ usize size, s32 (*cmp)(const void *, const void *));
  * 
  * @param [in] base - given pointer to the first element of the sequence to sort.
  * @param [in] nmemb - given number of elements in the sequence.
- * @param [in] size - given size of each element in aequence in bytes.
+ * @param [in] size - given size of each element in sequence in bytes.
  * @param [in] cmp - given comparison function pointer.
  */
 void accel_merge_sort(void *base, usize nmemb, usize size, s32 (*cmp)(const void *, const void *));
@@ -155,7 +155,7 @@ void accel_merge_sort(void *base, usize nmemb, usize size, s32 (*cmp)(const void
  * 
  * @param [in] base - given pointer to the first element of the sequence to sort.
  * @param [in] nmemb - given number of elements in the sequence.
- * @param [in] size - given size of each element in aequence in bytes.
+ * @param [in] size - given size of each element in sequence in bytes.
  * @param [in] cmp - given comparison function pointer.
  */
 void accel_quick_sort(void *base, usize nmemb, usize size, s32 (*cmp)(const void *, const void *));
@@ -222,9 +222,21 @@ void accel_shell_sort(s32 *arr, s32 nmemb);
  * 
  * @param [in] base - given pointer to the first element of the sequence to sort.
  * @param [in] nmemb - given number of elements in the sequence.
- * @param [in] size - given size of each element in aequence in bytes.
+ * @param [in] size - given size of each element in sequence in bytes.
  * @param [in] cmp - given comparison function pointer.
  */
 void accel_isort(void *base, usize nmemb, usize size, s32 (*cmp)(const void *, const void *));
+
+/**
+ * @brief Check is array is sorted.
+ * 
+ * @param [in] base - given pointer to the first element of the sequence to sort.
+ * @param [in] nmemb - given number of elements in the sequence.
+ * @param [in] size - given size of each element in sequence in bytes.
+ * @param [in] cmp - given comparison function pointer.
+ * @return true - if array is sorted.
+ * @return false - otherwise.
+ */
+bool accel_is_sorted(void *base, usize nmemb, usize size, s32 (*cmp)(const void *, const void *));
 
 #endif /* _ACCEL_SORT_H_ */
