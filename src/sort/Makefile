@@ -2,7 +2,7 @@ include ../common.mk
 
 NAME = accel_sort.o
 SRC  = bubble_sort heap_sort quick_sort shell_sort count_sort insertion_sort \
-	   merge radix_sort heapify introsort merge_sort selection_sort is_sorted
+	   merge radix_sort heapify isort merge_sort selection_sort is_sorted
 
 SRCS = $(addsuffix .c, $(SRC))
 OBJS = $(addsuffix .o, $(SRC))
