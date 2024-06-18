@@ -16,51 +16,20 @@
  * <https://www.gnu.org/licenses/>.
  */
 
-#include <string.h>
 #include <accel/utils.h>
 
 
-s32 accel_cmpint(const void *p1, const void *p2)
+void accel_print_hex(void *base, usize nmemb, usize size)
 {
-    s32 n1, n2;
+    char *arr;
     
-    n1 = *(int *)p1;
-    n2 = *(int *)p2;
-
-    return ((n1 > n2) - (n1 < n2));
-}
-
-s32 accel_cmpstr(const void *p1, const void *p2)
-{
-    char *s1, *s2;
-
-    s1 = *(char **)p1;
-    s2 = *(char **)p2;
+    arr  = (char *)base;
     
-    return strcmp(s1, s2);
-}
-
-s32 accel_cmpdouble(const void *p1, const void *p2)
-{
-    f64 d1, d2;
-
-    d1 = *(const f64 *)p1;
-    d2 = *(const f64 *)p2;
-
-    return ((d1 > d2) - (d1 < d2));
-}
-
-s32 accel_cmpchar(const void *p1, const void *p2)
-{
-    char c1, c2;
-
-    c1 = *(char *)p1;
-    c2 = *(char *)p2;
-    
-    if (c1 < c2)
-        return -1;
-    else if (c1 > c2)
-        return 1;
-    else
-        return 0;
+    for (usize i = 0; i < nmemb; i++) {
+        
+        for (usize j = 0; j < size; j++)
+            printf("%02X ", arr[i * size + j]);
+        
+        putchar('\n');
+    }
 }

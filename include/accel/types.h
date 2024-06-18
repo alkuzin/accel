@@ -48,4 +48,12 @@ typedef float  f32;
 #define usize  u64
 #define ssize  s64
 
+/** @brief Data types enumeration. */
+typedef enum {
+    TYPE_INT,
+    TYPE_DOUBLE,
+    TYPE_CHAR,
+    TYPE_STRING
+} type_t;
+
 #endif /* _ACCEL_TYPES_H_ */

@@ -29,9 +29,15 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 #include <accel/types.h>
 
+#define TYPE_FORMAT_SIZE 4
+#define TYPE_FORMAT_INT     "%d "
+#define TYPE_FORMAT_DOUBLE  "%lf "
+#define TYPE_FORMAT_CHAR    "%c "
+#define TYPE_FORMAT_STRING  "%s "
 
 /**
  * @brief Compares two integers pointed to by the given pointers. 
@@ -91,7 +97,7 @@ s32  accel_cmpchar(const void *p1, const void *p2);
  * @param [in] p2 - given pointer to the start of the second memory block to swap.
  * @param [in] size - given size of the memory blocks to swap, in bytes.
  */
-void accel_swap(void *p1, void *p2, size_t size);
+void accel_swap(void *p1, void *p2, usize size);
 
 
 /**
@@ -104,5 +110,22 @@ void accel_swap(void *p1, void *p2, size_t size);
  */
 s32 accel_get_max(s32 *arr, s32 nmemb);
 
+/**
+ * @brief Print given memory region in hexadecimal format.
+ * 
+ * @param [in] base - given pointer to the first element of the sequence to print.
+ * @param [in] nmemb - given number of elements in the sequence.
+ * @param [in] size - given size of each element in sequence in bytes.
+ */
+void accel_print_hex(void *base, usize nmemb, usize size);
+
+/**
+ * @brief Print array.
+ * 
+ * @param [in] base - given pointer to the first element of the sequence to print.
+ * @param [in] nmemb - given number of elements in the sequence.
+ * @param [in] type - given data type of array to print.
+ */
+void accel_print_arr(void *base, size_t nmemb, type_t type);
 
 #endif /* _ACCEL_UTILS_H_ */

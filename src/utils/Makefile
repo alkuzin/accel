@@ -2,7 +2,7 @@ include ../common.mk
 
 NAME = accel_utils.o
 
-SRC  = cmp get_max swap
+SRC  = cmp get_max swap print_arr print_hex
 SRCS = $(addsuffix .c, $(SRC))
 OBJS = $(addsuffix .o, $(SRC))
 
