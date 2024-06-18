@@ -128,4 +128,12 @@ void accel_print_hex(void *base, usize nmemb, usize size);
  */
 void accel_print_arr(void *base, size_t nmemb, type_t type);
 
+/**
+ * @brief Print error. 
+ * 
+ * @param [in] fmt - given format string. 
+ * @param [in] ... - given arguments. 
+ */
+void accel_error(const char *fmt, ...);
+
 #endif /* _ACCEL_UTILS_H_ */
