@@ -25,9 +25,8 @@
 int main(void)
 {
     test_init();
-
-    test_other(false);
-
+    test_fast(true);
+    test_other(true);
     test_display_result();
 
     return 0;

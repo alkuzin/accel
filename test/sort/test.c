@@ -105,3 +105,73 @@ void test_other_sort(const char *func, void (*sort)(s32*, s32), s32 nmemb, bool 
     free(arr);
     puts("------------------------------------------------------------\n\n");
 }
+
+void test_fast(bool flag)
+{
+    test_fast_sort("accel_bubble_sort()", accel_bubble_sort, 100, flag);
+    test_fast_sort("accel_selection_sort()", accel_selection_sort, 100, flag);
+    test_fast_sort("accel_insertion_sort()", accel_insertion_sort, 100, flag);
+    test_fast_sort("accel_heap_sort()", accel_heap_sort, 100, flag);
+    test_fast_sort("accel_merge_sort()", accel_merge_sort, 100, flag);
+    test_fast_sort("accel_quick_sort()", accel_quick_sort, 100, flag);
+    test_fast_sort("accel_isort()", accel_isort, 100, flag);
+}
+
+void test_fast_sort(const char *func, void (*sort)(void*, usize, usize, s32 (*cmp)(const void *, const void *)),
+s32 nmemb, bool flag)
+{
+    clock_t begin_time, end_time;
+    s32     *arr, ret;
+    f64     run_time;
+
+    puts("------------------------------------------------------------");
+    arr = (s32 *)malloc(nmemb * sizeof(s32));
+
+    if(!arr) {
+        perror("malloc error");
+        exit(EXIT_FAILURE);
+    }
+
+    if (flag) {
+        printf("test: %s: initial array:\n\n", func);
+        
+        for (s32 i = 0; i < nmemb; i++) {
+            arr[i] = rand() % 10000;
+            printf("%d ", arr[i]);
+        }
+        
+        putchar('\n');
+        putchar('\n');
+    }
+    else {
+        for (s32 i = 0; i < nmemb; i++)
+            arr[i] = rand() % 10000;
+    }
+
+    begin_time = clock();
+    sort(arr, nmemb, sizeof(s32), accel_cmpint);
+    end_time = clock();
+
+    run_time = (((f64)(end_time - begin_time)) / CLOCKS_PER_SEC);    
+
+    if (flag) {
+        printf("test: %s: sorted array:\n\n", func);
+        accel_print_arr(arr, nmemb, TYPE_INT);
+    }
+    
+    printf("\ntest: %s: run time is %.10f sec.\n", func, run_time);
+    
+    ret = accel_is_sorted(arr, nmemb, sizeof(s32), accel_cmpint);
+
+    if (ret) {
+        printf("test: %s: [ SUCCESS ]\n\n", func);
+        successfull_tests++;
+    }
+    else {
+        printf("test: %s: < FAIL >\n\n", func);
+        failed_tests++;
+    }
+    
+    free(arr);
+    puts("------------------------------------------------------------\n\n");
+}

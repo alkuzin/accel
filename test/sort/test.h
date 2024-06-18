@@ -24,14 +24,19 @@ void test_init(void);
 /** @brief Display total, successfull & failed number of tests. */
 void test_display_result(void);
 
-
-
 /**
  * @brief Test "Others" group of sort algorithms. 
  * 
  * @param [in] flag - given verbose flag (when true - prints initial and sorted arrays).
  */
 void test_other(bool flag);
+
+/**
+ * @brief Test "Fast" group of sort algorithms. 
+ * 
+ * @param [in] flag - given verbose flag (when true - prints initial and sorted arrays).
+ */
+void test_fast(bool flag);
 
 /**
  * @brief Test single sort algorithms from "Others" group.
@@ -42,3 +47,14 @@ void test_other(bool flag);
  * @param [in] flag - given verbose flag (when true - prints initial and sorted arrays).
  */
 void test_other_sort(const char *func, void (*sort)(s32*, s32), s32 nmemb, bool flag);
+
+/**
+ * @brief Test single sort algorithms from "Fast" group.
+ * 
+ * @param [in] func - given name of the function.
+ * @param [in] sort - given sort algorithm pointer.
+ * @param [in] nmemb - given number of elements in sequence.
+ * @param [in] flag - given verbose flag (when true - prints initial and sorted arrays).
+ */
+void test_fast_sort(const char *func, void (*sort)(void*, usize, usize, s32 (*cmp)(const void *, const void *)),
+s32 nmemb, bool flag);
