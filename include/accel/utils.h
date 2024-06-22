@@ -89,10 +89,7 @@ s32  accel_cmpchar(const void *p1, const void *p2);
 
 /**
  * @brief Swaps the contents of two memory regions of a given size.
- * 
- * @param [in] p1 
- * @param [in] p2 
- 
+ *
  * @param [in] p1 - given pointer to the start of the first memory block to swap.
  * @param [in] p2 - given pointer to the start of the second memory block to swap.
  * @param [in] size - given size of the memory blocks to swap, in bytes.
