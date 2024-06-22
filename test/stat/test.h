@@ -26,5 +26,7 @@
 /** @brief Display total, successfull & failed number of tests. */
 void test_display_result(void);
 
+/** @brief Test accel_mean() function. */
+void test_mean(void);
 
 #endif /* _TEST_ACCEL_STAT_H_ */
